@@ -244,8 +244,60 @@ function bufferTests() {
         let index: number;
         index = buffer.indexOf("23");
         index = buffer.indexOf("23", 1);
+        index = buffer.indexOf("23", 1, "utf8");
         index = buffer.indexOf(23);
         index = buffer.indexOf(buffer);
+    }
+
+    {
+        let buffer = new Buffer('123');
+        let index: number;
+        index = buffer.lastIndexOf("23");
+        index = buffer.lastIndexOf("23", 1);
+        index = buffer.lastIndexOf("23", 1, "utf8");
+        index = buffer.lastIndexOf(23);
+        index = buffer.lastIndexOf(buffer);
+    }
+
+    {
+        let buffer = new Buffer('123');
+        let val: [number, number];
+
+        for (let entry of buffer.entries()) {
+            val = entry;
+        }
+    }
+
+    {
+        let buffer = new Buffer('123');
+        let includes: boolean;
+        includes = buffer.includes("23");
+        includes = buffer.includes("23", 1);
+        includes = buffer.includes("23", 1, "utf8");
+        includes = buffer.includes(23);
+        includes = buffer.includes(23, 1);
+        includes = buffer.includes(23, 1, "utf8");
+        includes = buffer.includes(buffer);
+        includes = buffer.includes(buffer, 1);
+        includes = buffer.includes(buffer, 1, "utf8");
+    }
+
+    {
+        let buffer = new Buffer('123');
+        let val: number;
+
+        for (let key of buffer.keys()) {
+            val = key;
+        }
+    }
+
+    {
+        let buffer = new Buffer('123');
+        let val: number;
+
+        for (let value of buffer.values()) {
+            val = value;
+        }
     }
 
     // Imported Buffer from buffer module works properly
